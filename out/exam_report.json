@@ -1,0 +1,195 @@
+{
+ "schema_version": "1.0",
+ "as_of": "2031-02-28",
+ "mode": "supervised",
+ "findings": [
+  {
+   "id": "overcharge:CDU-3051266",
+   "class": "overcharge",
+   "verdict": "finding",
+   "action": "draft:dispute",
+   "confidence": 0.9,
+   "evidence": [
+    {
+     "doc": "batch_01/0010.eml#CDU-3051266.pdf",
+     "page": 1,
+     "quote": "Caldrith Air Logistics Inc."
+    },
+    {
+     "doc": "batch_01/0003.eml#MSA-CDA-US-EXP-E91.pdf",
+     "page": 1,
+     "quote": "Confidential | Master Services Agreement (Express Air) CDA-US-EXP-E91"
+    }
+   ],
+   "amount_usd": "244.37",
+   "amount_range": null,
+   "deadline": null,
+   "missing_doc": null,
+   "supersedes": [],
+   "learned_at": null,
+   "invoice_id": "CDU-3051266",
+   "contract_id": "CDA-US-EXP-E91"
+  },
+  {
+   "id": "duplicate:CDU-3051273",
+   "class": "duplicate",
+   "verdict": "finding",
+   "action": "draft:dispute",
+   "confidence": 0.9,
+   "evidence": [
+    {
+     "doc": "batch_01/0013.eml#CDU-3051273.pdf",
+     "page": 1,
+     "quote": "Charges advice CDU-3051273"
+    },
+    {
+     "doc": "batch_01/0017.eml",
+     "page": 1,
+     "quote": "Subject: Invoice CDU-3051273"
+    }
+   ],
+   "amount_usd": "3235.24",
+   "amount_range": null,
+   "deadline": null,
+   "missing_doc": null,
+   "supersedes": [],
+   "learned_at": null,
+   "invoice_id": "CDU-3051273",
+   "contract_id": "CDA-US-EXP-E91"
+  },
+  {
+   "id": "overcharge:CDU-3051286",
+   "class": "overcharge",
+   "verdict": "cannot_determine",
+   "action": "draft:request_document",
+   "confidence": 0.9,
+   "evidence": [
+    {
+     "doc": "batch_01/0004.eml#CDA-US-EXP-E91-AMD-1.pdf",
+     "page": 1,
+     "quote": "2. The Annex A rates for lane(s) USW2-USW1 are deleted and replaced as follows: Annex A rev 2 (attached) applies from"
+    }
+   ],
+   "amount_usd": null,
+   "amount_range": null,
+   "deadline": null,
+   "missing_doc": {
+    "name": "Annex A rev 2",
+    "holder": {
+     "party": "CDA-US",
+     "person": "Joaquin Rathbone",
+     "role": "Pricing Manager"
+    }
+   },
+   "supersedes": [],
+   "learned_at": null,
+   "invoice_id": "CDU-3051286",
+   "contract_id": "CDA-US-EXP-E91"
+  },
+  {
+   "id": "overcharge:CDU-3051302",
+   "class": "overcharge",
+   "verdict": "finding",
+   "action": "draft:dispute",
+   "confidence": 0.9,
+   "evidence": [
+    {
+     "doc": "batch_02/0005.eml#CDU-3051302.pdf",
+     "page": 1,
+     "quote": "Caldrith Air Logistics Inc."
+    },
+    {
+     "doc": "batch_01/0004.eml#CDA-US-EXP-E91-AMD-1.pdf",
+     "page": 1,
+     "quote": "Confidential | Amendment No. 1 to CDA-US-EXP-E91"
+    }
+   ],
+   "amount_usd": "61.93",
+   "amount_range": null,
+   "deadline": null,
+   "missing_doc": null,
+   "supersedes": [],
+   "learned_at": null,
+   "invoice_id": "CDU-3051302",
+   "contract_id": "CDA-US-EXP-E91"
+  }
+ ],
+ "portfolio": {
+  "cashback": [
+   {
+    "id": "cashback:CDA-US-EXP-E91/2030-Q3/rebate",
+    "class": "cashback",
+    "verdict": "finding",
+    "action": "draft:claim_credit",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "doc": "batch_01/0003.eml#MSA-CDA-US-EXP-E91.pdf",
+      "page": 4,
+      "quote": "7.1 Volume rebate. The Carrier shall credit a rebate on each Quarter's Qualifying Spend (QS) at the tier reached: QS >= USD"
+     },
+     {
+      "doc": "batch_01/0003.eml#MSA-CDA-US-EXP-E91.pdf",
+      "page": 3,
+      "quote": "1.1 Qualifying Spend. Qualifying Spend means freight charges (base freight, fuel, security surcharge and Annex D"
+     }
+    ],
+    "amount_usd": "4296.85",
+    "amount_range": null,
+    "deadline": null,
+    "missing_doc": null,
+    "supersedes": [],
+    "learned_at": null,
+    "contract_id": "CDA-US-EXP-E91",
+    "period": "2030-Q3",
+    "credit_type": "rebate"
+   }
+  ],
+  "expiry": [
+   {
+    "id": "expiry:CDA-US-EXP-E91",
+    "class": "expiry",
+    "verdict": "finding",
+    "action": "internal:alert",
+    "confidence": 0.95,
+    "evidence": [
+     {
+      "doc": "batch_01/0003.eml#MSA-CDA-US-EXP-E91.pdf",
+      "page": 3,
+      "quote": "2.2 Initial term. The initial term runs for 12 months and expires on 2031-04-01."
+     }
+    ],
+    "amount_usd": null,
+    "amount_range": null,
+    "deadline": "2031-04-01",
+    "missing_doc": null,
+    "supersedes": [],
+    "learned_at": null,
+    "contract_id": "CDA-US-EXP-E91"
+   }
+  ],
+  "late_fee_risk": [
+   {
+    "id": "late_fee_risk:CDU-3151571",
+    "class": "late_fee_risk",
+    "verdict": "finding",
+    "action": "internal:payment_reminder",
+    "confidence": 0.85,
+    "evidence": [
+     {
+      "doc": "batch_02/0023.eml#ap-register-2031-02-28.xlsx",
+      "page": 1,
+      "quote": "Invoice no. | Invoice date | Due date | Amount | Status | Paid date"
+     }
+    ],
+    "amount_usd": "10.29",
+    "amount_range": null,
+    "deadline": "2031-03-10",
+    "missing_doc": null,
+    "supersedes": [],
+    "learned_at": null,
+    "invoice_id": "CDU-3151571"
+   }
+  ]
+ }
+}

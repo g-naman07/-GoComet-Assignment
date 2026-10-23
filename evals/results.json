@@ -1,0 +1,81 @@
+{
+ "harness": "harness\\harness.py",
+ "passed": 12,
+ "total": 12,
+ "your_cases": 10,
+ "score": 1.0,
+ "cases": [
+  {
+   "case": "cashback_autonomous.yaml",
+   "name": "autonomous credit claim",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "cashback_quarter.yaml",
+   "name": "qualifying spend rebate",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "conflict_authority.yaml",
+   "name": "trusted rate conflict",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "duplicate_shipment.yaml",
+   "name": "duplicate shipment",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "expiry_window.yaml",
+   "name": "expiry alert window",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "late_fee_autonomous.yaml",
+   "name": "autonomous late fee dispute",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "late_fee_extension.yaml",
+   "name": "authorized extension removes fee",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "overcharge_autonomous.yaml",
+   "name": "autonomous reversible dispute",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "overcharge_layout.yaml",
+   "name": "overcharge worked layout",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "sample_conflict.yaml",
+   "name": "amendment and rate notice disagree",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "sample_overcharge.yaml",
+   "name": "wrong rate on one freight line",
+   "pass": true,
+   "diff": []
+  },
+  {
+   "case": "waiver_authority.yaml",
+   "name": "authorized one-off waiver",
+   "pass": true,
+   "diff": []
+  }
+ ]
+}

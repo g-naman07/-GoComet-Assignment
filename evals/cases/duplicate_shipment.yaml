@@ -1,0 +1,8 @@
+name: duplicate shipment
+mailbox: data/examples/duplicate/docs
+as_of: '2034-12-31'
+mode: supervised
+expect:
+  key: {invoice_id: TX-US-2033-5511, class: duplicate}
+  verdict: finding
+  action: draft:dispute

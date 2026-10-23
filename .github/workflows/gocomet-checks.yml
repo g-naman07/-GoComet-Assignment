@@ -1,0 +1,25 @@
+name: GoComet Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  pr-title-check:
+    if: github.event_name == 'pull_request'
+    permissions: {}
+    uses: gocomet-india/.github/.github/workflows/pr-title-check.yml@main
+    with:
+      jira_project: "GOSPRINT"
+    secrets: inherit
+
+  security:
+    if: github.event_name == 'push' || github.event.pull_request.base.ref == 'main'
+    permissions:
+      contents: read
+    uses: gocomet-india/.github/.github/workflows/security.yml@main
+    with:
+      allow_bot_commits: true

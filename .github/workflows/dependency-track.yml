@@ -1,0 +1,18 @@
+name: Dependency-Track
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  dependency-track:
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: gocomet-india/.github/.github/workflows/dependency-track.yml@main
+    with:
+      gate: ${{ vars.DEPENDENCY_TRACK_GATE != 'false' }}
+      max_critical_high: 10
+    secrets:
+      DEPENDENCY_TRACK_API_KEY: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}

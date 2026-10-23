@@ -1,0 +1,78 @@
+# Runs on your private copy: the practice grader, then the submission check.
+# Add your key as a repository secret named ANTHROPIC_API_KEY (Settings > Secrets and variables > Actions).
+# Each run spends from that key. Remove the `push` trigger if you'd rather run it by hand only.
+name: grade
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  grade:
+    # Skip on the published template itself (its harness is the empty stub); runs on every candidate's copy.
+    if: github.repository != 'gocomet-india/nova-takehome'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Setup
+        run: make setup
+      - name: Practice grader (make grade)
+        run: make grade
+      - name: Submission check (make validate)
+        if: always()
+        run: make validate
+      - name: Keep the report card
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: report-card
+          path: |
+            report_card.txt
+            report_card.json
+
+  # ── Org security & quality scans (reusable workflows) ─────────────────────────
+  # Make "Betterleaks / betterleaks", "Trivy FS / trivy" and "Trivy Image / trivy"
+  # required status checks so a finding blocks the merge. See WORKFLOWS.md.
+  betterleaks:
+    name: Betterleaks
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: gocomet-india/.github/.github/workflows/betterleaks.yml@main
+    with:
+      # Repo variable, one regex per line, e.g. "^vendor/" or "/fixtures/".
+      exclude_paths: ${{ vars.BETTERLEAKS_EXCLUDE_PATHS }}
+      validation: ${{ vars.BETTERLEAKS_VALIDATION == 'true' }}  # opt-in
+
+  trivy-fs:
+    name: Trivy FS
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: gocomet-india/.github/.github/workflows/trivy.yml@main
+    with:
+      # Repo variable, one path per line, e.g. "vendor/" or "**/testdata".
+      exclude_paths: ${{ vars.TRIVY_EXCLUDE_PATHS }}
+      fail_on_findings: ${{ vars.TRIVY_BLOCKING != 'false' }}
+
+  sonarqube:
+    name: SonarQube
+    permissions:
+      contents: read
+    uses: gocomet-india/.github/.github/workflows/sonarqube.yml@main
+    with:
+      quality_gate: ${{ vars.SONAR_QUALITY_GATE != 'false' }}
+      branch_analysis: ${{ vars.SONAR_BRANCH_ANALYSIS == 'true' }}
+      # Extra scanner flags (sources, exclusions, coverage paths) go in `args`, e.g.
+      # args: -Dsonar.exclusions=**/vendor/**
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

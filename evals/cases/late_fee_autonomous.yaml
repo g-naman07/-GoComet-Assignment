@@ -1,0 +1,9 @@
+name: autonomous late fee dispute
+mailbox: data/examples/late_fees/docs
+as_of: '2033-02-28'
+mode: autonomous
+expect:
+  key: {invoice_id: TX-US-2032-5496, class: late_fee_not_owed}
+  verdict: finding
+  amount_usd: '12.65'
+  action: execute:dispute

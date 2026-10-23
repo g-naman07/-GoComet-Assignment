@@ -1,0 +1,9 @@
+name: autonomous credit claim
+mailbox: data/examples/cashback/docs
+as_of: '2033-11-30'
+mode: autonomous
+expect:
+  key: {contract_id: TBX-US-EXP-E58, period: 2033-Q2, credit_type: rebate}
+  verdict: finding
+  amount_usd: '3278.35'
+  action: execute:claim_credit
