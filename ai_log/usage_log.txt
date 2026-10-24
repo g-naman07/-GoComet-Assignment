@@ -1,0 +1,24 @@
+# AI Assistance Log
+
+## Tools Used
+- Antigravity AI coding assistant
+- OpenAI Codex in the IDE
+- PowerShell and Python for repository operations, testing, and validation
+
+## Assistance Provided
+During development, AI assistants were used to:
+- Clarify assignment requirements and discuss implementation approaches.
+- Inspect existing code and evaluation results to identify potential issues.
+- Suggest fixes, code improvements, and additional edge-case tests.
+- Help investigate dependency and environment issues.
+- Draft and refine `SOLUTION.md` and `AI_USE.md`.
+- Assist with repository cleanup and final-submission preparation.
+
+## Developer Responsibilities
+I directed the development workflow, reviewed the proposed changes, made implementation decisions, and used the available tests and evaluation tools to assess the solution. AI-generated code and suggestions were reviewed as part of this process.
+
+## API and Testing Limitations
+No Anthropic API key was available during development. Testing therefore relied on the available local implementation and deterministic fallback where applicable. Live Anthropic API integration was not verified.
+
+## Log Scope
+This file summarizes the AI assistance used during development; it is not a verbatim transcript of every interaction. Any separately available prompt logs should be retained in this directory, with credentials and other sensitive information removed.

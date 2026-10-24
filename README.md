@@ -222,3 +222,4 @@ with two readers working from the files alone, and they had to agree. The order 
 an answer. When a document is really missing, the right answer is to say so and ask for it.
 
 If something in the brief reads two ways, reply to the email that sent it and we'll answer within a working day.
+"# -GoComet-Assignment" 

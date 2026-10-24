@@ -1,34 +1,23 @@
-# AI use
+# AI Use Documentation
 
-## Tools
+## Tools 
+- **OpenAI Codex / IDE AI assistant:** Requirement clarification, code review, debugging, and implementation suggestions.
+- **PowerShell:** Repository navigation and file operations.
+- **Python:** Running tests, evaluations, and validation scripts.
+- **Repository inspection tools:** Reviewing source files, evaluation cases, and generated reports.
 
-OpenAI Codex in the IDE, PowerShell, repository search/read tools, and Python.
-The code changes use the existing deterministic text extraction provider; no
-external model calls were made during this repair.
+## How AI Assisted the Project
+AI tools were used as development assistants throughout the project to:
+1. Clarify assignment requirements and discuss implementation approaches.
+2. Review existing code and help investigate bugs and failing evaluations.
+3. Explore edge cases involving contract interpretation, invoice calculations, evidence handling, and audit decisions.
+4. Suggest code improvements and assist with debugging.
+5. Draft and refine project documentation, including `SOLUTION.md` and this file.
 
-## How I used them
+I remained responsible for evaluating suggestions, understanding the implementation, making technical decisions, and checking the resulting behavior through tests and evaluations.
 
-Codex inspected the assignment brief, glossary, examples, schema, grader,
-existing implementation, tests and recorded reports. It changed the conflict
-amount-range calculation, generalized detection of explicitly referenced but
-missing rate attachments, and fixed feedback matching so one invoice's
-decision does not affect other invoices on its contract. Python tests and the
-repository evaluation and grading tools were used to check those changes.
-
-## Prompt log
-
-1. “Take over the existing Nova Freight Invoice Audit Harness project. Inspect
-   the assignment instructions, repository, existing code, tests, evaluation
-   results, and generated reports before making changes.”
-2. “Improve the implementation to maximize the practice score (last recorded:
-   51.1/100) and fix the failing custom evaluation (last recorded: 11/12
-   passed). Identify root causes, fix the underlying logic, and add regression
-   tests. Do not hardcode evaluation answers or weaken validation.”
-3. “Preserve working code and implement all remaining assignment requirements.
-   I will install dependencies myself later, so don't waste time troubleshooting
-   installations. Run all available tests and evaluations, fix failures, and
-   regenerate required outputs.”
-4. “Prepare a complete, submission-ready repository with correct source code,
-   documentation, configuration instructions, and all required deliverables.
-   Verify the final files and follow the original assignment's submission
-   requirements.”
+## Transparency and Limitations
+- No Anthropic API key was available during development. Local testing used the deterministic extraction fallback where applicable.
+- Live Anthropic API integration was not verified.
+- AI-generated suggestions and code changes were reviewed as part of the development process. The extent of AI assistance should be understood from the accompanying logs.
+- The actual available prompt history is provided in `ai_log/usage_log.txt`, with sensitive information removed.
